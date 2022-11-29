@@ -10,8 +10,6 @@ function App() {
     <CodeMirror
       value="console.log('hello world!');"
       height='100vh'
-      autoSave={true}
-      draggable={true}
       theme={okaidia}
       extensions={[javascript({ jsx: true })]}
       onChange={onChange}
