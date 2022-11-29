@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
-
+import React from 'react'
+import CodeMirror from '@uiw/react-codemirror'
+import { javascript } from '@codemirror/lang-javascript'
+import { okaidia } from '@uiw/codemirror-theme-okaidia';
 function App() {
+  const onChange = React.useCallback((value, viewUpdate) => {
+    // console.log('value:', value);
+  }, []);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <CodeMirror
+      value="console.log('hello world!');"
+      height='100vh'
+      autoSave={true}
+      draggable={true}
+      theme={okaidia}
+      extensions={[javascript({ jsx: true })]}
+      onChange={onChange}
+
+    />
+  )
 }
 
-export default App;
+export default App
